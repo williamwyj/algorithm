@@ -16,7 +16,11 @@ function FindIntersection(strArr) {
     }
   }
   // code goes here  
+  if (outputString === '') {
+    return false
+  } else {
   return outputString; 
+  }
 
 }
    
