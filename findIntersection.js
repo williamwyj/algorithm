@@ -1,9 +1,31 @@
 function FindIntersection(strArr) {
-  let a = strArr[0].split(',');
-  let b = strArr[1].split(',');
-  let result = a.filter(x => b.find(a => a === x))
-  return result.length > 0 ? result.join(',') : 'false'
+  const a = strArr[0].split(', ');
+  const b = strArr[1].split(', ');
+  const bObject = {};
+  b.forEach(element => bObject[element] = true)
+  let output = '';
+  a.forEach((element) => {
+    if(bObject[element] && output === '') {
+      output += element
+    } else if (bObject[element]) {
+      output += ',';
+      output += element;
+    }
+  })
+  if (output[0]){
+    return output;
+  } else if (!output[0]) {
+    return false;
+  }
 }
+
+
+// function FindIntersection(strArr) {
+//   let a = strArr[0].split(', ');
+//   let b = strArr[1].split(', ');
+//   let result = a.filter(x => b.find(a => a === x))
+//   return result.length > 0 ? result.join(',') : 'false'
+// }
 
 
 
